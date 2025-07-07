@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles/RPS.css" />
+  </head>
+  <body>
+    <p class="title">Rock Paper Scissors</p>
+    <button id="js-rock" class="button-move">
+      <img class="move-icon" src="images/rock.png" alt="rock" />
+    </button>
+    <button id="js-paper" class="button-move">
+      <img class="move-icon" src="images/paper.png" alt="paper" />
+    </button>
+    <button id="js-scissors" class="button-move">
+      <img class="move-icon" src="images/scissors.png" alt="scissors" />
+    </button>
+    <p id="js-result" class="result"></p>
+    <p id="js-moves" class="moves">
+      You
+      <img
+        src="#"
+        alt="player-move"
+        id="js-player"
+        class="player-move move-icon"
+      />
+      <img
+        src="#"
+        alt="computer-move"
+        id="js-computer"
+        class="computer-move move-icon"
+      />
+      Computer
+    </p>
+    <p id="js-score" class="score"></p>
+    <button id="js-reset" class="reset">Reset Score</button>
+    <button id="js-auto-play" class="auto-play">Auto Play</button>
+    <div id="reset" class="hidden-notification">
+      <p class="reset-message">Are you sure you want to reset the score?</p>
+      <button id="reset-yes" class="yes-button">Yes</button>
+      <button id="reset-no" class="no-button">No</button>
+    </div>
+  </body>
+  <script src="scripts/RPS.js"></script>
+</html>

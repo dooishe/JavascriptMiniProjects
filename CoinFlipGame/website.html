@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Flip Game</title>
+  </head>
+  <body>
+    <p>Coin Flip Game</p>
+    <button class="js-heads">heads</button>
+    <button class="js-tails">tails</button>
+    <button class="js-reset">reset</button>
+  </body>
+  <script>
+    let scoreGame = JSON.parse(localStorage.getItem("scoreGame")) || {
+      wins: 0,
+      losses: 0,
+    };
+    function calcRandomSide() {
+      const sides = ["heads", "tails"];
+      const randomIndex = Math.floor(Math.random() * sides.length);
+      return sides[randomIndex];
+    }
+    function determineResult(guess) {
+      randomSide = calcRandomSide();
+      const result = guess === randomSide ? "You win!" : "You lose!";
+      console.log(result);
+      if (result === "You win!") scoreGame.wins += 1;
+      else scoreGame.losses += 1;
+      localStorage.setItem("scoreGame", JSON.stringify(scoreGame));
+      alert(`Your guess ${guess}. random side ${randomSide}. ${result}
+			wins: ${scoreGame.wins}, losses: ${scoreGame.losses}`);
+    }
+    function reset() {
+      scoreGame = { wins: 0, losses: 0 };
+      localStorage.setItem("scoreGame", JSON.stringify(scoreGame));
+    }
+    document
+      .querySelector(".js-heads")
+      .addEventListener("click", () => determineResult("heads"));
+    document
+      .querySelector(".js-tails")
+      .addEventListener("click", () => determineResult("tails"));
+    document
+      .querySelector(".js-reset")
+      .addEventListener("click", () => reset());
+  </script>
+</html>

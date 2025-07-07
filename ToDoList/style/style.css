@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div p {
+  margin: 0px;
+}
+
+.to-do-row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 200px 150px 100px;
+  margin: 0px 0px 10px;
+  align-items: center;
+}
+
+.add-button,
+.delete-button {
+  font-size: 15px;
+  background-color: rgb(20, 114, 27);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: rgb(137, 14, 14);
+}
+
+.text-button,
+.date-button {
+  height: 37px;
+  font-size: 15px;
+  padding: 6px;
+}
