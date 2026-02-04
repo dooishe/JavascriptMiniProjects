@@ -1,15 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
+  background-color: #000000;
 }
 .calculator {
   margin: 10px 20px;
-  max-width: 274px;
+  width: 274px;
+  overflow: hidden;
 }
 
 .row {
@@ -17,13 +18,16 @@ body {
 }
 
 .calculation {
-  border-bottom: 2px solid white;
-}
-
-.calculation {
+  height: 50px;
+  max-width: calc(100% - 5px);
+  border: none;
+  border-radius: 5px;
+  text-align: right;
+  overflow: hidden;
+  padding-top: 10px;
   margin: 15px 0px 5px;
-  font-size: 45px;
-  color: white;
+  font-size: 25px;
+  color: black;
 }
 
 .gray-button {

@@ -1,38 +1,29 @@
-let calculation = localStorage.getItem("calculation") || "0";
-displayCalculation();
+let calculation = localStorage.getItem("calculation") || "";
+document.addEventListener("DOMContentLoaded", () => {
+  displayCalculation();
+  initializeEventListeners();
+});
+
 function updateCalculation(value) {
-  const operators = [" + ", " - ", " * ", " / "];
-  if (calculation === "0") {
-    if (operators.includes(value)) {
-      calculation += value;
-    } else if (value !== "0" && value !== ".") {
-      calculation = value;
-    } else if (value === ".") {
-      calculation += value;
-    }
-    displayCalculation();
-    localStorage.setItem("calculation", calculation);
-    return;
-  }
   calculation += value;
   displayCalculation();
   localStorage.setItem("calculation", calculation);
 }
 function displayCalculation() {
-  document.querySelector(".js-calculation").textContent = calculation;
+  const inputElement = document.querySelector(".js-calculation");
+  if (inputElement) {
+    inputElement.value = calculation;
+    inputElement.scrollLeft = inputElement.scrollWidth;
+  }
 }
 function deleteLastCharacter() {
-  if (calculation === "0") return;
-  if (calculation.length === 1) {
-    calculation = "0";
-  } else {
-    calculation = calculation.slice(0, -1);
-  }
+  if (calculation === "") return;
+  calculation = calculation.slice(0, -1);
   displayCalculation();
   localStorage.setItem("calculation", calculation);
 }
 function clear() {
-  calculation = "0";
+  calculation = "";
   displayCalculation();
   localStorage.setItem("calculation", calculation);
 }
@@ -41,8 +32,27 @@ function equal() {
   displayCalculation();
   localStorage.setItem("calculation", calculation);
 }
-document
-  .querySelector(".js-backspace")
-  .addEventListener("click", deleteLastCharacter);
-document.querySelector(".js-clear").addEventListener("click", clear);
-document.querySelector(".js-equal").addEventListener("click", equal);
+function handleInputChange(event) {
+  const inputElement = event.target;
+  calculation = inputElement.value;
+  inputElement.scrollLeft = inputElement.scrollWidth;
+  localStorage.setItem("calculation", calculation);
+}
+function handleInputKeyUp(event) {
+  if (event.key === "Enter") {
+    equal();
+  }
+}
+function initializeEventListeners() {
+  document
+    .querySelector(".js-backspace")
+    .addEventListener("click", deleteLastCharacter);
+  document.querySelector(".js-clear").addEventListener("click", clear);
+  document.querySelector(".js-equal").addEventListener("click", equal);
+  document
+    .querySelector(".js-calculation")
+    .addEventListener("input", (event) => handleInputChange(event));
+  document
+    .querySelector(".js-calculation")
+    .addEventListener("keyup", (event) => handleInputKeyUp(event));
+}

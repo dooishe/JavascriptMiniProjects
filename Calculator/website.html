@@ -1,14 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/images/favicon16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="assets/images/favicon96.png"
+    />
     <title>Calculator</title>
   </head>
   <body>
     <div class="calculator">
-      <p class="js-calculation calculation"></p>
+      <input type="text" class="js-calculation calculation" placeholder="0" />
       <div class="row">
         <button
           class="calculator-button gray-button"
@@ -87,26 +105,28 @@
           *
         </button>
       </div>
+      <div class="row">
+        <button
+          class="calculator-button gray-button"
+          onclick="updateCalculation('0')"
+        >
+          0
+        </button>
+        <button
+          class="calculator-button gray-button"
+          onclick="updateCalculation('.')"
+        >
+          .
+        </button>
+        <button class="js-equal calculator-button gray-button">=</button>
+        <button
+          class="calculator-button orange-button"
+          onclick="updateCalculation(' / ')"
+        >
+          /
+        </button>
+      </div>
 
-      <button
-        class="calculator-button gray-button"
-        onclick="updateCalculation('0')"
-      >
-        0
-      </button>
-      <button
-        class="calculator-button gray-button"
-        onclick="updateCalculation('.')"
-      >
-        .
-      </button>
-      <button class="js-equal calculator-button gray-button">=</button>
-      <button
-        class="calculator-button orange-button"
-        onclick="updateCalculation(' / ')"
-      >
-        /
-      </button>
       <div class="row">
         <button class="js-clear calculator-button clear-button gray-button">
           Clear
