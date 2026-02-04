@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -24,7 +24,6 @@
     function determineResult(guess) {
       randomSide = calcRandomSide();
       const result = guess === randomSide ? "You win!" : "You lose!";
-      console.log(result);
       if (result === "You win!") scoreGame.wins += 1;
       else scoreGame.losses += 1;
       localStorage.setItem("scoreGame", JSON.stringify(scoreGame));
