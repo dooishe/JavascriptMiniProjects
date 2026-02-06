@@ -117,6 +117,8 @@ function setupEventListeners() {
   });
   yesResetButton.addEventListener("click", () => {
     reset();
+    movesElement.classList.remove("moves-visible");
+    resultElement.textContent = "";
     resetNotification.classList.remove("show-notification");
   });
   noResetButton.addEventListener("click", () => {
